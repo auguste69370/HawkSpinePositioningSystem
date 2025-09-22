@@ -1,0 +1,537 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+  <meta name="description" content="Découvrez HawkSpine en action avec notre démonstration interactive. Voyez comment fonctionne notre système de positionnement avancé, explorez les fonctionnalités clés et découvrez pourquoi les vétérinaires du monde entier font confiance à HawkSpine.">
+  <title>Démonstration HawkSpine - Présentation Interactive & Fonctionnalités</title>
+  <link rel="stylesheet" href="css/theme.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes slideInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+    }
+    
+    
+    body {
+      background: #000000;
+      color: #fff;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      position: relative;
+      overflow-x: hidden;
+    }
+    
+    /* Effet de particules subtiles */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 20% 20%, rgba(0, 153, 255, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(0, 153, 255, 0.02) 0%, transparent 50%),
+        radial-gradient(circle at 40% 60%, rgba(0, 153, 255, 0.01) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: -1;
+    }
+    
+    .demo-container {
+      max-width: 1200px;
+      width: 100%;
+      text-align: center;
+      position: relative;
+      animation: fadeInUp 1s ease-out;
+    }
+    
+    .back-button {
+      position: fixed;
+      top: 2rem;
+      left: 2rem;
+      background: rgba(255,255,255,0.1);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 1rem;
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      z-index: 10;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      animation: slideInLeft 1s ease-out 0.3s both;
+    }
+    
+    .back-button:hover {
+      background: rgba(255,255,255,0.2);
+      border-color: rgba(255,255,255,0.4);
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2), 0 4px 12px rgba(0,153,255,0.1);
+      text-decoration: none;
+      color: #fff;
+    }
+    
+    .back-button:active {
+      transform: translateY(-1px) scale(1.02);
+      transition: all 0.1s ease;
+    }
+    
+    .demo-header {
+      margin-bottom: 4rem;
+      animation: fadeInUp 1s ease-out 0.6s both;
+    }
+    
+    .demo-title {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 3.5rem;
+      font-weight: 300;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      color: #0099FF;
+    }
+    
+    .demo-subtitle {
+      font-size: 1.3rem;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 2rem;
+      line-height: 1.6;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      font-weight: 400;
+    }
+    
+    .demo-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: linear-gradient(135deg, rgba(0, 153, 255, 0.15) 0%, rgba(0, 153, 255, 0.05) 100%);
+      border: 1px solid rgba(0, 153, 255, 0.3);
+      border-radius: 2rem;
+      padding: 0.8rem 1.5rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #0099FF;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 12px rgba(0, 153, 255, 0.1);
+    }
+    
+    .video-section {
+      position: relative;
+      margin-bottom: 4rem;
+      animation: fadeInUp 1s ease-out 0.9s both;
+    }
+    
+    .video-container {
+      position: relative;
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      border-radius: 2rem !important;
+      overflow: hidden !important;
+      box-shadow: 
+        0 25px 80px rgba(0, 0, 0, 0.4),
+        0 0 0 1px rgba(255, 255, 255, 0.1);
+      background: #000;
+      backdrop-filter: blur(20px);
+    }
+    
+    .video-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(0, 153, 255, 0.1) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 1;
+    }
+    
+    .video-container video {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 2rem !important;
+      transition: all 0.3s ease;
+      overflow: hidden;
+    }
+    
+    
+    .video-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 153, 255, 0.1) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: all 0.3s ease;
+      z-index: 2;
+      border-radius: 2rem !important;
+      pointer-events: none;
+    }
+    
+    .video-container:hover .video-overlay {
+      opacity: 1;
+    }
+    
+    .play-button {
+      pointer-events: auto;
+    }
+    
+    .play-button {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #0099FF, #0077CC);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 32px rgba(0, 153, 255, 0.4);
+      animation: pulse 2s infinite;
+    }
+    
+    .play-button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 12px 40px rgba(0, 153, 255, 0.6);
+    }
+    
+    .play-button svg {
+      width: 32px;
+      height: 32px;
+      fill: white;
+      margin-left: 4px;
+    }
+    
+    
+    .cta-section {
+      animation: fadeInUp 1s ease-out 1.2s both;
+    }
+    
+    .cta-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #fff;
+    }
+    
+    .cta-subtitle {
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 2.5rem;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .cta-buttons {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 1rem 2rem;
+      border-radius: 1rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .cta-button-primary {
+      background: linear-gradient(135deg, #0099FF, #0077CC);
+      color: #fff;
+      border: none;
+      box-shadow: 0 8px 32px rgba(0, 153, 255, 0.3);
+    }
+    
+    .cta-button-primary:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 12px 40px rgba(0, 153, 255, 0.4);
+      text-decoration: none;
+      color: #fff;
+    }
+    
+    .cta-button-secondary {
+      background: transparent;
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(10px);
+    }
+    
+    .cta-button-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.5);
+      transform: translateY(-3px) scale(1.05);
+      text-decoration: none;
+      color: #fff;
+    }
+    
+    .cta-button svg {
+      width: 20px;
+      height: 20px;
+    }
+    
+    /* Force les coins arrondis sur tous les éléments vidéo */
+    video {
+      border-radius: 2rem !important;
+      overflow: hidden !important;
+    }
+    
+    .video-container video,
+    .video-container video::-webkit-media-controls,
+    .video-container video::-webkit-media-controls-panel {
+      border-radius: 2rem !important;
+    }
+    
+    /* Styles spécifiques pour forcer les coins arrondis */
+    .video-section .video-container {
+      border-radius: 2rem !important;
+      overflow: hidden !important;
+    }
+    
+    .video-section .video-container video {
+      border-radius: 2rem !important;
+      overflow: hidden !important;
+    }
+    
+    @media (max-width: 768px) {
+      body {
+        padding: 1rem;
+      }
+      
+      .back-button {
+        top: 1rem;
+        left: 1rem;
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+      }
+      
+      .demo-title {
+        font-size: 2.5rem;
+      }
+      
+      .demo-subtitle {
+        font-size: 1.1rem;
+      }
+      
+      .video-container {
+        border-radius: 1.5rem;
+      }
+      
+      .video-container video {
+        border-radius: 1.5rem;
+      }
+      
+      .video-overlay {
+        border-radius: 1.5rem;
+      }
+      
+      .play-button {
+        width: 60px;
+        height: 60px;
+      }
+      
+      .play-button svg {
+        width: 24px;
+        height: 24px;
+      }
+      
+      
+      .cta-title {
+        font-size: 1.8rem;
+      }
+      
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .cta-button {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .demo-title {
+        font-size: 2rem;
+      }
+      
+      .demo-subtitle {
+        font-size: 1rem;
+      }
+      
+      .video-container {
+        border-radius: 1rem;
+      }
+      
+      .video-container video {
+        border-radius: 1rem;
+      }
+      
+      .video-overlay {
+        border-radius: 1rem;
+      }
+      
+      .cta-title {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a href="productfr.html" class="back-button" aria-label="Retour">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M19 12H5M12 19l-7-7 7-7"/>
+    </svg>
+    Retour
+  </a>
+  
+  <div class="demo-container">
+    <div class="demo-header">
+      <h1 class="demo-title">Démonstration HawkSpine</h1>
+      <p class="demo-subtitle">
+        Découvrez l'avenir de l'imagerie vétérinaire avec notre système de positionnement révolutionnaire
+      </p>
+    </div>
+    
+    <div class="video-section">
+      <div class="video-container">
+        <video controls preload="metadata">
+          <source src="vids/Demo.mp4" type="video/mp4">
+          Votre navigateur ne supporte pas la balise vidéo.
+        </video>
+        <div class="video-overlay">
+          <div class="play-button">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="5,3 19,12 5,21 5,3"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    
+    <div class="cta-section">
+      <h2 class="cta-title">Prêt à Transformer Votre Pratique ?</h2>
+      <p class="cta-subtitle">
+        Rejoignez des centaines de professionnels vétérinaires qui ont déjà modernisé leur flux de travail d'imagerie
+      </p>
+      <div class="cta-buttons">
+        <a href="productfr.html" class="cta-button cta-button-primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+          </svg>
+          En Savoir Plus
+        </a>
+        <a href="stripefr.html" class="cta-button cta-button-secondary">
+          Commander Maintenant
+        </a>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    // Améliorations d'interaction vidéo
+    const video = document.querySelector('video');
+    const playButton = document.querySelector('.play-button');
+    const videoOverlay = document.querySelector('.video-overlay');
+    
+    // Fonctionnalité du bouton play
+    playButton.addEventListener('click', () => {
+      video.play();
+      videoOverlay.style.opacity = '0';
+    });
+    
+    // Masquer l'overlay quand la vidéo joue
+    video.addEventListener('play', () => {
+      videoOverlay.style.opacity = '0';
+    });
+    
+    // Afficher l'overlay quand la vidéo se termine
+    video.addEventListener('ended', () => {
+      videoOverlay.style.opacity = '1';
+    });
+    
+    // Permettre aux contrôles vidéo de fonctionner correctement
+    video.addEventListener('click', (e) => {
+      e.stopPropagation();
+    });
+    
+    // Défilement fluide pour les liens d'ancrage
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

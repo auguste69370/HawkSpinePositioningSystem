@@ -1,0 +1,94 @@
+# Robots.txt pour HawkSpine
+# Site: https://hawkspine.com
+
+# Règles pour tous les robots
+User-agent: *
+
+# Autoriser l'indexation de toutes les pages principales
+Allow: /
+Allow: /index.html
+Allow: /indexfr.html
+Allow: /product.html
+Allow: /productfr.html
+Allow: /system.html
+Allow: /systemfr.html
+Allow: /demo.html
+Allow: /demofr.html
+Allow: /Stripe.html
+Allow: /stripefr.html
+
+# Autoriser l'indexation des pages légales
+Allow: /CGU.html
+Allow: /CGUfr.html
+Allow: /CGV.html
+Allow: /CGVfr.html
+Allow: /confi.html
+Allow: /confifr.html
+Allow: /Cookie.html
+Allow: /cookiefr.html
+
+# Interdire l'indexation des fichiers de développement et documentation
+Disallow: /GUARANTEES_DESKTOP_ONLY.md
+Disallow: /PRICE_BUTTON_CENTERING.md
+Disallow: /PRODUCT_RESPONSIVE_IMPROVEMENTS.md
+Disallow: /PRODUCTFR_RESPONSIVE_IMPROVEMENTS.md
+Disallow: /RESPONSIVE_IMPROVEMENTS.md
+Disallow: /README.md
+Disallow: /responsive_rules.css
+
+# Interdire l'indexation des fichiers de configuration
+Disallow: /netlify.toml
+
+# Interdire l'indexation des dossiers de ressources (optionnel)
+# Décommentez si vous ne voulez pas indexer les images/vidéos
+# Disallow: /img/
+# Disallow: /vids/
+# Disallow: /fonts/
+
+# Interdire l'indexation des fichiers CSS et JS (optionnel)
+# Décommentez si vous ne voulez pas indexer les fichiers de style/script
+# Disallow: /css/
+# Disallow: /js/
+
+# Interdire l'indexation de la page de chargement
+Disallow: /loading.html
+
+# Interdire l'indexation des fichiers temporaires et de cache
+Disallow: /*.tmp
+Disallow: /*.cache
+Disallow: /*.log
+
+# Règles spécifiques pour Googlebot
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+# Règles spécifiques pour Bingbot
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 2
+
+# Règles pour les autres moteurs de recherche
+User-agent: Slurp
+Allow: /
+Crawl-delay: 3
+
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 2
+
+# Bloquer les bots malveillants connus
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+# Emplacement du sitemap
+Sitemap: https://hawkspine.com/sitemap.xml
+
+# Informations de contact (optionnel)
+# Contact: contact@hawkspine.com

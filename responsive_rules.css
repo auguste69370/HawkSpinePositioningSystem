@@ -1,0 +1,77 @@
+    
+    /* Additional responsive improvements for tablet and intermediate screen sizes */
+    @media (min-width: 769px) and (max-width: 1199px) {
+      .apple-product-hero {
+        max-width: 95vw !important;
+        margin: 2rem auto !important;
+        padding: 2rem 1.5rem !important;
+      }
+      .apple-product-hero-inner {
+        flex-direction: column !important;
+        gap: 3rem !important;
+        padding: 2rem 1rem !important;
+        max-width: 100% !important;
+      }
+      .apple-product-hero-images {
+        position: static !important;
+        height: auto !important;
+        min-height: auto !important;
+        width: 100% !important;
+        flex: none !important;
+      }
+      .apple-product-hero-infos {
+        position: static !important;
+        width: 100% !important;
+        flex: none !important;
+      }
+      .apple-product-hero-content {
+        align-items: center !important;
+        text-align: center !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+      }
+      .apple-product-title {
+        font-size: 2.4rem !important;
+        text-align: center !important;
+      }
+      .apple-product-subtitle {
+        font-size: 1.15rem !important;
+        text-align: center !important;
+      }
+      .apple-product-price-row {
+        justify-content: center !important;
+        align-items: center !important;
+        text-align: center !important;
+      }
+      .apple-buy-btn {
+        margin: 0 auto !important;
+      }
+      .apple-carousel {
+        max-width: 80vw !important;
+        aspect-ratio: 16/10 !important;
+      }
+    }
+    
+    /* Improvements for smaller tablets and large phones */
+    @media (min-width: 481px) and (max-width: 768px) {
+      .apple-product-hero {
+        max-width: 98vw !important;
+        margin: 1.5rem auto !important;
+        padding: 1.5rem 1rem !important;
+      }
+      .apple-product-hero-inner {
+        flex-direction: column !important;
+        gap: 2.5rem !important;
+        padding: 1.5rem 0.75rem !important;
+      }
+      .apple-product-title {
+        font-size: 2.2rem !important;
+      }
+      .apple-product-subtitle {
+        font-size: 1.1rem !important;
+      }
+      .apple-carousel {
+        max-width: 85vw !important;
+        aspect-ratio: 4/3 !important;
+      }
+    }
