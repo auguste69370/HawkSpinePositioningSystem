@@ -1,0 +1,14 @@
+# Fichiers GLB volumineux (>10MB) - non compatibles avec Netlify
+img/H3.glb
+img/H4.glb
+
+# Fichiers de sauvegarde
+*.backup
+*.bak
+
+# Fichiers temporaires
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
