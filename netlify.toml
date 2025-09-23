@@ -44,8 +44,14 @@
 
 # Headers for GLB/3D model files
 [[headers]]
-  for = "*.glb"
+  for = "/img/*.glb"
   [headers.values]
     Cache-Control = "public, max-age=31536000"
     Content-Type = "model/gltf-binary"
+    Access-Control-Allow-Origin = "*"
+
+# Headers for external model-viewer script
+[[headers]]
+  for = "https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"
+  [headers.values]
     Access-Control-Allow-Origin = "*"

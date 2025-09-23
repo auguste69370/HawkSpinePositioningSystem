@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test 3D Models</title>
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            padding: 20px; 
+            background: #000; 
+            color: white; 
+        }
+        model-viewer { 
+            width: 300px; 
+            height: 300px; 
+            margin: 20px; 
+            border: 2px solid #fff;
+        }
+        .test-section {
+            margin: 40px 0;
+            padding: 20px;
+            border: 1px solid #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Test 3D Models on Netlify</h1>
+    
+    <div class="test-section">
+        <h2>Test 1: hawkspine-3.compressed.glb</h2>
+        <model-viewer 
+            src="img/hawkspine-3.compressed.glb" 
+            alt="HawkSpine 3D Model"
+            camera-controls 
+            auto-rotate
+            style="width: 300px; height: 300px; background: transparent;">
+        </model-viewer>
+        <p>Status: <span id="status1">Loading...</span></p>
+    </div>
+
+    <div class="test-section">
+        <h2>Test 2: H1.compressed.glb</h2>
+        <model-viewer 
+            src="img/H1.compressed.glb" 
+            alt="H1 Model"
+            camera-controls 
+            auto-rotate
+            style="width: 300px; height: 300px; background: transparent;">
+        </model-viewer>
+        <p>Status: <span id="status2">Loading...</span></p>
+    </div>
+
+    <div class="test-section">
+        <h2>Test 3: H3.glb (large file)</h2>
+        <model-viewer 
+            src="img/H3.glb" 
+            alt="H3 Model"
+            camera-controls 
+            auto-rotate
+            style="width: 300px; height: 300px; background: transparent;">
+        </model-viewer>
+        <p>Status: <span id="status3">Loading...</span></p>
+    </div>
+
+    <script>
+        // Test model loading
+        const models = document.querySelectorAll('model-viewer');
+        models.forEach((model, index) => {
+            model.addEventListener('load', () => {
+                document.getElementById(`status${index + 1}`).textContent = '✅ Loaded successfully';
+                document.getElementById(`status${index + 1}`).style.color = 'green';
+            });
+            
+            model.addEventListener('error', (e) => {
+                document.getElementById(`status${index + 1}`).textContent = '❌ Failed to load: ' + e.detail;
+                document.getElementById(`status${index + 1}`).style.color = 'red';
+            });
+        });
+
+        // Test direct file access
+        console.log('Testing direct file access...');
+        fetch('img/hawkspine-3.compressed.glb')
+            .then(response => {
+                console.log('hawkspine-3.compressed.glb:', response.status, response.statusText);
+                if (!response.ok) {
+                    console.error('File not accessible:', response.status);
+                }
+            })
+            .catch(error => console.error('Fetch error:', error));
+
+        fetch('img/H3.glb')
+            .then(response => {
+                console.log('H3.glb:', response.status, response.statusText);
+                if (!response.ok) {
+                    console.error('File not accessible:', response.status);
+                }
+            })
+            .catch(error => console.error('Fetch error:', error));
+    </script>
+</body>
+</html>
