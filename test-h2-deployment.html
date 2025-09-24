@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test H2 Deployment</title>
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+</head>
+<body>
+    <h1>Test H2.compressed.glb Deployment</h1>
+    
+    <h2>Test 1: H2.compressed.glb</h2>
+    <model-viewer 
+        src="img/H2.compressed.glb" 
+        alt="Removable Side Panels Test" 
+        camera-controls 
+        auto-rotate 
+        ar 
+        shadow-intensity="1" 
+        disable-zoom 
+        reveal="auto" 
+        style="width: 400px; height: 300px; background: #f0f0f0; border-radius: 1rem;">
+    </model-viewer>
+
+    <h2>Test 2: File availability check</h2>
+    <div id="file-status"></div>
+
+    <script>
+        // Test if file is accessible
+        fetch('img/H2.compressed.glb')
+            .then(response => {
+                const statusDiv = document.getElementById('file-status');
+                if (response.ok) {
+                    statusDiv.innerHTML = `<p style="color: green;">✅ H2.compressed.glb is accessible (Status: ${response.status})</p>`;
+                } else {
+                    statusDiv.innerHTML = `<p style="color: red;">❌ H2.compressed.glb is not accessible (Status: ${response.status})</p>`;
+                }
+            })
+            .catch(error => {
+                document.getElementById('file-status').innerHTML = `<p style="color: red;">❌ Error loading H2.compressed.glb: ${error.message}</p>`;
+            });
+    </script>
+</body>
+</html>
