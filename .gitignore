@@ -2,6 +2,9 @@
 img/H3.glb
 img/H4.glb
 
+# Fichiers temporaires de compression
+img/H3.compressed.glb
+
 # Fichiers de sauvegarde
 *.backup
 *.bak
