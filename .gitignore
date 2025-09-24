@@ -4,6 +4,7 @@ img/H4.glb
 
 # Fichiers temporaires de compression
 img/H3.compressed.glb
+img/H4.compressed.glb
 
 # Fichiers de sauvegarde
 *.backup
