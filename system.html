@@ -1290,26 +1290,5 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-<script>
-// Function to scroll to requirements section when coming from Stripe page
-function scrollToRequirements() {
-  // Check if we're coming from a Stripe page
-  if (document.referrer.includes('stripe') || document.referrer.includes('Stripe')) {
-    setTimeout(() => {
-      const element = document.getElementById('hawkspine-requirements');
-      if (element) {
-        element.scrollIntoView({ 
-          behavior: 'smooth',
-          block: 'start'
-        });
-      }
-    }, 100);
-  }
-}
-
-// Auto-scroll on page load if coming from Stripe
-window.addEventListener('load', scrollToRequirements);
-</script>
-
   </body>
 </html>

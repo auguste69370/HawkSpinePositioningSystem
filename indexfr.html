@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="css/counter-animation.css">
   <link rel="stylesheet" href="css/testimonials-carousel.css">
   <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/popup.css">
   <style>
 /* MOBILE OVERFLOW FIXES */
 html, body {
@@ -1782,6 +1783,7 @@ body {
     font-size: 0.95rem;
   }
 }
+
 </style>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -2371,13 +2373,24 @@ document.addEventListener('DOMContentLoaded', function() {
       <span class="h5 text-secondary fw-lighter" style="font-size:1.2rem;">Efficacité, Précision, Meilleur Soin du Patient</span>
     </div>
     <div class="mb-4">
-      <span class="display-3" style="font-weight:700; letter-spacing:-0.02em; font-size:2.8rem; line-height:1.1;">
-        1 990&nbsp;€
-        <span style="font-size:1.1rem; font-weight:400; color:#bbb; vertical-align: super; margin-left:0.2em; letter-spacing:0;">HT</span>
-      </span>
+      
+      <!-- Prix avec ancien prix barré -->
+      <div class="price-container" style="display: flex; flex-direction: column; align-items: center; gap: 0.1rem; margin-bottom: 1.5rem;">
+        <!-- Ancien prix barré -->
+        <div class="old-price" style="font-size: 2.24rem; color: #777; text-decoration: line-through; font-weight: 400; letter-spacing: -0.01em;">2 500&nbsp;€</div>
+        
+        <!-- Nouveau prix -->
+        <div class="new-price" style="font-size: 3.2rem; font-weight: 800; color: #0099FF; letter-spacing: -0.03em; line-height: 1; display: flex; align-items: baseline; gap: 0.5rem; justify-content: center;">
+          <span>1 990&nbsp;€</span>
+          <span style="font-size: 0.85rem; color: #aaa; font-weight: 400;">HT</span>
+        </div>
+        
+        <!-- Offre valide -->
+        <div style="font-size: 0.8rem; color: #aaa; font-style: italic; margin-top: 0.3rem; text-align: center;">Offre valide jusqu'au 31 décembre 2025</div>
+      </div>
     </div>
 
-    <a href="productfr.html" class="btn btn-xl apple-buy-btn" style="font-size:1.15rem; padding:0.85rem 2.5rem; border-radius:9999px; font-weight:600; background: #0099FF; border: 2px solid #0099FF; color: #fff; text-decoration: none; box-shadow:0 2px 10px rgba(0,153,255,0.3); transition:transform 0.18s cubic-bezier(.4,0,.2,1), box-shadow 0.18s cubic-bezier(.4,0,.2,1);">ACHETER MAINTENANT</a>
+    <a href="productfr.html" class="btn btn-xl apple-buy-btn" style="font-size:1.15rem; padding:0.85rem 2.5rem; border-radius:12px; font-weight:600; background: #0099FF; border: 2px solid #0099FF; color: #fff; text-decoration: none; box-shadow:0 2px 10px rgba(0,153,255,0.3); transition:transform 0.18s cubic-bezier(.4,0,.2,1), box-shadow 0.18s cubic-bezier(.4,0,.2,1);">ACHETER MAINTENANT</a>
   </div>
 </section>
 <!-- Model Viewer CDN -->
@@ -3025,6 +3038,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     </main>
 
+    <!-- Popup Modal -->
+    <div id="popup-container"></div>
+
     <footer class="bg-dark border-top border-dark">
       <div class="container py-2" style="font-size:0.93rem;">
 
@@ -3146,7 +3162,25 @@ document.addEventListener('DOMContentLoaded', function() {
 <script src="js/bootstrap.bundle.min.js"></script>
 <script src="js/aos.js"></script>
 <script src="js/chatbot.js"></script>
+<script src="js/popup.js"></script>
 <script>
+// Charger le popup HTML
+document.addEventListener('DOMContentLoaded', function() {
+  fetch('popup.html')
+    .then(response => response.text())
+    .then(html => {
+      document.getElementById('popup-container').innerHTML = html;
+      console.log('Popup HTML chargé avec succès');
+      // Déclencher l'initialisation du popup
+      if (typeof initializePopup === 'function') {
+        initializePopup();
+      }
+    })
+    .catch(error => {
+      console.error('Erreur lors du chargement du popup:', error);
+    });
+});
+
 AOS.init({
  duration: 800, // values from 0 to 3000, with step 50ms
 });
@@ -3599,6 +3633,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 </script>
+
 
   </body>
 </html>

@@ -492,17 +492,17 @@
       font-weight: 900;
       margin-right: 0.2em;
     }
-    .apple-buy-btn {
-      background: #0099FF;
-      color: #fff;
-      font-size: 1.18rem;
-      font-weight: 700;
-      padding: 1.1rem 1.5rem;
-      border-radius: 1.2rem;
-      box-shadow: 0 2px 12px rgba(0, 153, 255, 0.3);
-      border: none;
-      cursor: pointer;
-      transition: background 0.18s, color 0.18s, transform 0.18s, box-shadow 0.18s;
+      .apple-buy-btn {
+        background: #0099FF;
+        color: #fff;
+        font-size: 1.18rem;
+        font-weight: 700;
+        padding: 1.1rem 1.5rem;
+        border-radius: 12px;
+        box-shadow: 0 2px 12px rgba(0, 153, 255, 0.3);
+        border: none;
+        cursor: pointer;
+        transition: background 0.18s, color 0.18s, transform 0.18s, box-shadow 0.18s;
       display: inline-block;
       margin-top: 0.5rem;
       letter-spacing: 0.01em;
@@ -2497,8 +2497,22 @@
         <div class="apple-product-hero-content" style="max-width: 420px; margin: 0 auto 0 auto; padding-top: 72px; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; gap: 1.1rem; height: 100%; text-align: center;">
           <h1 class="apple-product-title" style="font-size:3.1rem; color: #0099FF;">HawkSpine</h1>
           <div class="apple-product-subtitle" style="font-size:1.35rem;">Système de positionnement vétérinaire IRM à tunnel fermé et scanner CT</div>
-          <div class="apple-product-price-row" style="gap:1.2rem; justify-content: center; align-items: center; width: 100%;">
-            <div class="apple-product-price" style="font-size:2.4rem;">€1,990 <span class="apple-product-price-vat" style="font-size:0.95rem; color:#b0b0b0;">HT</span></div>
+          
+          <div class="apple-product-price-row" style="gap:1.5rem; justify-content: center; align-items: center; width: 100%; flex-direction: column;">
+            <!-- Prix avec ancien prix barré -->
+            <div class="price-container" style="display: flex; flex-direction: column; align-items: center; gap: 0.2rem; margin-bottom: 1.2rem;">
+              <!-- Ancien prix barré -->
+              <div class="old-price" style="font-size: 1.96rem; color: #777; text-decoration: line-through; font-weight: 400; letter-spacing: -0.01em;">€2,500</div>
+              
+              <!-- Nouveau prix -->
+              <div class="new-price" style="font-size: 2.8rem; font-weight: 800; color: #0099FF; letter-spacing: -0.03em; line-height: 1; display: flex; align-items: baseline; gap: 0.5rem;">
+                <span>€1,990</span>
+                <span style="font-size: 0.85rem; color: #aaa; font-weight: 400;">HT</span>
+              </div>
+              
+              <!-- Offre valide -->
+              <div style="font-size: 0.8rem; color: #aaa; font-style: italic; margin-top: 0.3rem;">Offre valide jusqu'au 31 décembre 2025</div>
+            </div>
             <button class="apple-buy-btn" id="main-buy-btn">Acheter maintenant</button>
           </div>
           <div class="apple-benefits-title">Conçu pour l'<span style="color: #0099FF;">Excellence</span> Vétérinaire</div>

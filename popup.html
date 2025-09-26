@@ -1,0 +1,64 @@
+<!-- Popup Modal avec Glassmorphism -->
+<div id="special-offer-popup" class="popup-overlay" style="display: none;">
+  <div class="popup-container">
+    <div class="popup-content">
+      <!-- Bouton de fermeture -->
+      <button class="popup-close" id="popup-close" aria-label="Fermer">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M18 6L6 18M6 6l12 12"/>
+        </svg>
+      </button>
+      
+      <!-- Contenu du popup -->
+      <div class="popup-body">
+        <!-- Modèle 3D à gauche -->
+        <div class="popup-3d-section">
+          <div class="model-container">
+            <model-viewer
+              id="popup-hawkspine-model"
+              src="img/hawkspine-3.compressed.glb"
+              alt="3D HawkSpine"
+              camera-controls
+              auto-rotate
+              shadow-intensity="1"
+              disable-zoom
+              reveal="auto"
+              style="width: 100%; height: 100%; background: transparent;"
+            ></model-viewer>
+          </div>
+        </div>
+        
+        <!-- Contenu de prix à droite -->
+        <div class="popup-pricing-section">
+          <div class="pricing-content">
+            
+            <h2 class="popup-title">HawkSpine</h2>
+            <p class="popup-subtitle">Positionnement parfait en moins de 2 minutes</p>
+            
+            <div class="price-container">
+              <div class="old-price">2 500€</div>
+              <div class="new-price">
+                <span class="price-amount">1 990€</span>
+                <span class="price-ht">HT</span>
+              </div>
+            </div>
+            
+            <div class="popup-cta">
+              <a href="productfr.html" class="popup-buy-btn">
+                Acheter maintenant
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path d="M9 5l7 7-7 7"/>
+                </svg>
+              </a>
+            </div>
+            
+            <div class="validity-text">
+              <span style="display: block; margin-top: 0.3rem; font-style: italic;">Offre valide jusqu'au 31 décembre 2025</span>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
